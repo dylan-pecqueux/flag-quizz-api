@@ -16,6 +16,10 @@ async function main() {
   let failed = 0;
 
   for (const [countryCode, country] of Object.entries(codes)) {
+    if (countryCode.toLowerCase().startsWith('us-')) {
+      skipped++;
+      continue;
+    }
     if (known.has(countryCode.toLowerCase())) {
       skipped++;
       continue;
