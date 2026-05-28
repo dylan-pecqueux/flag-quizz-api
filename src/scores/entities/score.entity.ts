@@ -8,9 +8,12 @@ export class Score {
   @Column()
   score: number;
 
-  @Column()
+  @Column({ name: 'user_name' })
   userName: string;
 
-  @Column()
+  @Column({ name: 'number_of_questions' })
   numberOfQuestions: number;
+
+  @Column({ name: 'type_of_quiz' })
+  typeOfQuiz: string;
 }

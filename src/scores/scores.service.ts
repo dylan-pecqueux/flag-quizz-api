@@ -16,9 +16,9 @@ export class ScoresService {
     return await this.scoresRepository.save(score);
   }
 
-  async findByNumberOfQuestions(numberOfQuestions: number) {
+  async findByNumberOfQuestions(numberOfQuestions: number, typeOfQuiz: string) {
     return await this.scoresRepository.find({
-      where: { numberOfQuestions },
+      where: { numberOfQuestions, typeOfQuiz },
       order: { score: 'DESC' },
     });
   }

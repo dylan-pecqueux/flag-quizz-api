@@ -9,4 +9,7 @@ export class CreateScoreDto {
 
   @IsNumber()
   numberOfQuestions: number;
+
+  @IsString()
+  typeOfQuiz: string;
 }

@@ -1,4 +1,11 @@
-import { Controller, Get, Post, Body, Query, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Query,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { ScoresService } from './scores.service';
 import { CreateScoreDto } from './dto/create-score.dto';
 
@@ -12,7 +19,13 @@ export class ScoresController {
   }
 
   @Get()
-  findAll(@Query('numberOfQuestions', ParseIntPipe) numberOfQuestions: number) {
-    return this.scoresService.findByNumberOfQuestions(numberOfQuestions);
+  findAll(
+    @Query('numberOfQuestions', ParseIntPipe) numberOfQuestions: number,
+    @Query('typeOfQuiz') typeOfQuiz: string,
+  ) {
+    return this.scoresService.findByNumberOfQuestions(
+      numberOfQuestions,
+      typeOfQuiz,
+    );
   }
 }
